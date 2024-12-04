@@ -1,7 +1,8 @@
-package com.bemobi.domain;
+package com.bemobi.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
@@ -16,11 +17,25 @@ public class UrlShortener {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String originalUrl;
 
-    private String shortnedUrl;
+    @Column(unique = true, nullable = false)
+    private String alias;
 
+    @Column(unique = true)
+    private String customAlias;
+
+    @CreationTimestamp
+    @Column(nullable = false)
     private OffsetDateTime createdAt;
 
+    public UrlShortener() {
+    }
 
+    public UrlShortener(String originalUrl, String alias, String customAlias) {
+        this.originalUrl = originalUrl;
+        this.alias = alias;
+        this.customAlias = customAlias;
+    }
 }
