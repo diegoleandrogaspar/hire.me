@@ -8,8 +8,8 @@ import lombok.Setter;
 public class UrlShortenerModel {
 
     private String alias;
-    private String shortenedUrl;
+    private String url;
     private String originalUrl;
-    private Long timeTaken;
+    private Statistics statistics;
 
 }
