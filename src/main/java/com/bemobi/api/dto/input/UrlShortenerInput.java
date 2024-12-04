@@ -16,5 +16,4 @@ public class UrlShortenerInput {
     @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "O alias personalizado deve conter apenas letras e números.")
     private String customAlias;
 
-
 }
