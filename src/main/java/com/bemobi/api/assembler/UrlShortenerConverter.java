@@ -2,9 +2,10 @@ package com.bemobi.api.assembler;
 
 import com.bemobi.api.dto.input.UrlShortenerInput;
 import com.bemobi.api.dto.model.UrlShortenerModel;
-import com.bemobi.domain.UrlShortener;
+import com.bemobi.domain.model.UrlShortener;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -17,6 +18,9 @@ public class UrlShortenerConverter implements Converter<UrlShortener, UrlShorten
     @Autowired
     private ModelMapper modelMapper;
 
+    @Value("${app.shortener.base-url:http://localhost:8080}")
+    private String baseUrl;
+
     @Override
     public UrlShortener toDomainObject(UrlShortenerInput input) {
         return modelMapper.map(input, UrlShortener.class);
@@ -24,13 +28,15 @@ public class UrlShortenerConverter implements Converter<UrlShortener, UrlShorten
 
     @Override
     public UrlShortenerModel toDto(UrlShortener domain) {
-        return modelMapper.map(domain, UrlShortenerModel.class);
+        UrlShortenerModel dto = modelMapper.map(domain, UrlShortenerModel.class);
+        dto.setUrl(baseUrl + "/" + domain.getAlias());
+        return dto;
     }
 
     @Override
     public List<UrlShortenerModel> toCollectionDTO(Collection<UrlShortener> list) {
         return list.stream()
-                .map(url -> toDto(url))
+                .map(this::toDto)
                 .collect(Collectors.toList());
     }
 
