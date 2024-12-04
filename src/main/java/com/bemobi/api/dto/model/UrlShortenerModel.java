@@ -12,7 +12,4 @@ public class UrlShortenerModel {
     private String originalUrl;
     private Long timeTaken;
 
-
-
-
 }
