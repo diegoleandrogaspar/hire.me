@@ -10,12 +10,16 @@ Este projeto é uma solução para o desafio técnico da Bemobi. Ele foi desenvo
 - **Spring Boot 2.x**
 - **MySQL**
 - **Docker** (opcional, caso queira rodar o projeto em contêineres)
+- **JUnit e Mockito** para testes unitários
+
 
 ## Funcionalidades
 
 - Implementação de um serviço backend em **Spring Boot**.
 - Integração com banco de dados **MySQL**.
 - Utilização de **JPA/Hibernate** para persistência de dados.
+- Testes unitários para as camadas de serviços, repositórios e controllers utilizando JUnit e Mockito.
+- Uso de DTOs para organização e transferência de dados entre camadas.
 
 ## Instruções de Execução
 
