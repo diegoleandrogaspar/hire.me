@@ -1,4 +1,79 @@
+# Bemobi - Desafio
+
+## Descrição
+
+Este projeto é uma solução para o desafio técnico da Bemobi. Ele foi desenvolvido utilizando **Java 17**, **Spring Boot**, e **MySQL** para criar uma aplicação de backend simples.
+
+## Tecnologias Usadas
+
+- **Java 17**
+- **Spring Boot 2.x**
+- **MySQL**
+- **Docker** (opcional, caso queira rodar o projeto em contêineres)
+
+## Funcionalidades
+
+- Implementação de um serviço backend em **Spring Boot**.
+- Integração com banco de dados **MySQL**.
+- Utilização de **JPA/Hibernate** para persistência de dados.
+
+## Instruções de Execução
+
+### Pré-requisitos
+
+- **Java 17** ou superior.
+- **MySQL 8.0** ou superior.
+- **Docker** (caso queira rodar o projeto no contêiner).
+
+### Rodando com Docker
+
+1. **Construa a imagem Docker**:
+   No diretório raiz do projeto, execute o comando:
+   ```bash
+   docker build -t bemobi-app .
+
+2. **Execute o contêiner Docker**:
+Após a construção da imagem, execute o contêiner:
+```bash
+docker run -p 8080:8080 bemobi-app
+A aplicação estará acessível em http://localhost:8080.
+```
+
+
+## Rodando Localmente
+**Configure o MySQL:**
+
+### Rodando Localmente
+
+1. **Configure o MySQL**:
+   - Crie um banco de dados no MySQL chamado `bemobi`.
+   - Utilize as credenciais definidas no arquivo `application.properties`:
+      - **URL**: `jdbc:mysql://localhost/bemobi?createDatabaseIfNotExist=true&serverTimezone=UTC`
+      - **Usuário**: `root`
+      - **Senha**: `3866`
+
+2. **Instale as dependências**:
+   Caso não tenha o Docker, execute o seguinte comando para rodar o projeto localmente:
+
+```bash
+./mvnw spring-boot:run
+```
+
+A aplicação estará acessível em http://localhost:8080.
+
+### Estrutura de Pastas
+* src/main/java: Código fonte do projeto.
+* src/main/resources: Arquivos de configuração e templates.
+* Dockerfile: Arquivo de configuração para Docker.
+
+### Configurações de Banco de Dados
+* URL de Conexão: jdbc:mysql://localhost/bemobi?createDatabaseIfNotExist=true&serverTimezone=UTC
+* Usuário: root
+* Senha: 3866
+
+
 # Hire.me
+
 Um pequeno projeto para testar suas habilidades como programador.
 
 ## Instruções Gerais
