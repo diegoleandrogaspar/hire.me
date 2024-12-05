@@ -2,8 +2,6 @@ package com.bemobi.api.controller;
 
 import com.bemobi.api.assembler.UrlShortenerConverter;
 import com.bemobi.api.dto.model.UrlShortenerModel;
-import com.bemobi.api.exceptionhandler.Problem;
-import com.bemobi.domain.exception.UrlNotFoundException;
 import com.bemobi.api.dto.model.Statistics;
 import com.bemobi.domain.model.UrlShortener;
 import com.bemobi.domain.service.UrlShortenerService;

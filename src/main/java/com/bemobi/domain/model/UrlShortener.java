@@ -20,7 +20,7 @@ public class UrlShortener {
     @Column(nullable = false)
     private String originalUrl;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, name = "url_alias", nullable = false)
     private String alias;
 
     @Column(unique = true)

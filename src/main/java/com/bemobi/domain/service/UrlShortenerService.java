@@ -36,7 +36,7 @@ public class UrlShortenerService {
                 .orElseThrow(() -> new UrlNotFoundException(alias));
     }
 
-    private String generateRandomAlias() {
+    public String generateRandomAlias() {
         return UUID.randomUUID().toString().substring(0, 8);
     }
 }
